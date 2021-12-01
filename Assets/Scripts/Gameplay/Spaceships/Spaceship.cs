@@ -20,12 +20,23 @@ namespace Gameplay.Spaceships
         [SerializeField]
         private UnitBattleIdentity _battleIdentity;
 
+        [SerializeField]
+        private HitPointsComponent _hitPointsComponent;
+
+        public event Action<bool> IsDied;
+
+        private ScoreManager _scoreManager;
+        private bool IsDestroy = false;
 
         public MovementSystem MovementSystem => _movementSystem;
         public WeaponSystem WeaponSystem => _weaponSystem;
 
         public UnitBattleIdentity BattleIdentity => _battleIdentity;
 
+        private void Awake()
+        {
+            _scoreManager = ScoreManager.instance; //singlton manager. I prefer Zenject for this purpose, but decided not to change Architecture
+        }
         private void Start()
         {
             _shipController.Init(this);
@@ -34,7 +45,18 @@ namespace Gameplay.Spaceships
 
         public void ApplyDamage(IDamageDealer damageDealer)
         {
-            Destroy(gameObject);
+            if(this.gameObject.CompareTag("Player"))
+            {
+                _hitPointsComponent.GetDamage(damageDealer.Damage);
+            }
+            else if (!IsDestroy)//just to avoid double spawn lootboxes
+            {
+                IsDestroy = true;
+                Destroy(gameObject);
+                IsDied?.Invoke(true);//for scoreManager
+                _scoreManager.Addscore();
+            }
+            
         }
 
     }
