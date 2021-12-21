@@ -207,6 +207,16 @@ MonoBehaviour:
   _lootList:
   - {fileID: 5248148980737333436, guid: e26490cbdabba354995a014635c638b0, type: 3}
   - {fileID: 4796754818392994640, guid: a77c87cb74451ba409a2b6368f5a9ea0, type: 3}
+  _lootComponents:
+  - gameObject: {fileID: 5248148980737333436, guid: e26490cbdabba354995a014635c638b0,
+      type: 3}
+    "drop\u0421hance": 500
+  - gameObject: {fileID: 5248148980737333436, guid: 9ba8563474131634399dc3bfc0125bb5,
+      type: 3}
+    "drop\u0421hance": 300
+  - gameObject: {fileID: 4796754818392994640, guid: a77c87cb74451ba409a2b6368f5a9ea0,
+      type: 3}
+    "drop\u0421hance": 200
 --- !u!1 &1507206475712916752
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +303,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 590599124562096581}
     m_Modifications:
+    - target: {fileID: 2543782742246006012, guid: dcb1bf35503a2d340ab0e1e9d82bca8b,
+        type: 3}
+      propertyPath: m_Name
+      value: LaserGun1
+      objectReference: {fileID: 0}
     - target: {fileID: 2543782742246006013, guid: dcb1bf35503a2d340ab0e1e9d82bca8b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -347,11 +362,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2543782742246006012, guid: dcb1bf35503a2d340ab0e1e9d82bca8b,
-        type: 3}
-      propertyPath: m_Name
-      value: LaserGun1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcb1bf35503a2d340ab0e1e9d82bca8b, type: 3}
